@@ -1,0 +1,114 @@
+#form-create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.form-box{
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    padding: 30px 0 30px 0;
+    margin-bottom: 60px;
+    box-shadow: 0px 0px 5px 2px #d3d3d3;
+    select{
+        padding: 1px 2px;
+        border: none;
+        border-radius: 10px;
+        height: 32px;
+        width: 204px;
+        color: rgb(118, 118, 118);
+    }
+    input{
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+        padding-left: 5px;
+    }
+    span {
+        font-weight: bold;
+    }
+    label{
+        margin-right: 5px;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.address-box{
+    border-left: 1px solid rgb(109, 133, 13);
+    height: 300px;
+    width: 220px;
+    padding-left: 5px;
+}
+
+.info-box {
+    height: 300px;
+    width: 220px;
+    margin-right: 10px;
+}
+.form-divider{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.form-col {
+    max-width: 177px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+}
+
+#form-btn{
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    height: 50px;
+    width: 150px;
+    border:1px solid rgb(109, 133, 13);
+    transition: 0.2s;
+    &:hover{
+        background-color: rgb(109, 133, 13);
+    }
+}
+
+.form-errors{
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 5px;
+    width: 200px;
+    margin: auto auto 20px auto;
+    .form-error-list{
+        font-size: 14px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #form-create{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .info-box{
+        margin: 0;
+    }
+    .address-box{
+        
+        
+        padding: 0;
+        border-left: none;
+        margin-top: 10px;
+        .form-divider{
+            height: 20px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+    }
+}
