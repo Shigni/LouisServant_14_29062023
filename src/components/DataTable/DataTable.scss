@@ -1,0 +1,180 @@
+// $card-max-width: 960px;
+$card-max-width: 100%;
+
+// $table-concept-max-height: 480px;
+$table-concept-max-height: 100%;
+
+$table-background-color: #ffffff;
+$table-hover-background-color: darken($table-background-color, 8%);
+$table-even-background-color: darken($table-background-color, 4%);
+$table-header-color: #ffffff;
+$table-header-background-color: rgb(109, 133, 13);
+
+$pagination-background-color: #8f8f8f;
+
+$pagination-label-color: #ffffff;
+$pagination-label-background-color: $pagination-background-color;
+$pagination-label-active-color: #ffffff;
+$pagination-label-active-background-color:
+  darken($pagination-background-color, 15%);
+$pagination-label-disabled-color: #ffffff;
+$pagination-label-disabled-background-color:
+  lighten($pagination-background-color, 15%);
+
+$table-title-color: #ffffff;
+$table-title-background-color: #2f2f2f;
+
+.main-table {
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    padding: 30px 0 30px 0;
+    margin-bottom: 60px;
+    box-shadow: 0px 0px 5px 2px #d3d3d3;
+}
+.data-table-container{
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.data-table-head {
+    font-weight: bold;
+}
+
+table {
+    overflow: scroll;
+    background-color: $table-background-color;
+    font-size: 16px;
+    border-collapse: collapse;
+    tr {
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+      th,
+      td {
+        text-align: center;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      th {
+        color: $table-header-color;
+        font-weight: normal;
+        background-color: $table-header-background-color;
+        border-bottom: solid 2px #d8d8d8;
+        position: sticky;
+        top: 0;
+      }
+      td {
+        border: solid 1px #d8d8d8;
+        border-left: 0;
+        border-right: 0;
+        white-space: nowrap;
+      }
+    }
+    tbody tr {
+      transition: background-color 150ms ease-out;
+      &:nth-child(2n) {
+        background-color: $table-even-background-color;
+      }
+      &:hover {
+        background-color: $table-hover-background-color;
+      }
+    }
+  }
+
+.data-table-sort-arrow {
+    color: white;
+    font-size: 20px;
+    margin-bottom: -4px;
+    margin-top: -4px;
+    transition: 0.5s;
+    vertical-align: middle;
+}
+.data-table-sort-arrow:hover {
+    color: rgb(147, 173, 24);
+    cursor: pointer;
+}
+
+.search-box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    input{
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+        padding-left: 5px;
+    }
+    select {
+        border: none;
+        border-radius: 10px;
+        height: 30px;
+    }
+    div{
+        border-right: 1px solid rgb(109, 133, 13);
+        padding: 0px 5px 0px 5px;
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        &:last-child {
+            border-right:none ;
+        }
+        label {
+            margin-right: 5px;
+        }
+    }
+    .btn-data-table{
+        cursor: pointer;
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        border:1px solid rgb(109, 133, 13);
+        transition: 0.2s;
+        margin: 0px 5px 0px 5px;
+        &:hover{
+            background-color: rgb(109, 133, 13);
+        }
+
+    }
+}
+@media screen and (max-width: 1198px){
+    .data-table-container{
+        justify-content: start;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .search-box{
+        input {
+            width: 100px;
+        }
+        div{
+            border: none;
+        }
+        .data-entries-total{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 621px){
+    .main-table{
+        padding-top: 0;
+    }
+    .search-box{
+        label{
+            display: none;
+        }
+        .data-entries-select{
+        height: 75px;
+      } 
+      .btn-data-table{
+        width: 70px;
+        height: 35px;
+      }
+    }
+}
