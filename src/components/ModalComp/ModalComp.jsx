@@ -5,7 +5,6 @@ export default function Modal({
   parameter,
   message,
 }) {
-  // Template
   return (
     <>
       {showModal && (

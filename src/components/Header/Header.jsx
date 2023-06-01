@@ -3,7 +3,6 @@ import Logo from '../../assets/Logo.png';
 import { NavLink } from 'react-router-dom';
 
 export function Header() {
-  // Template
   return (
     <nav>
       <div className="nav-logo-title">
@@ -13,11 +12,9 @@ export function Header() {
 
       <div className="nav-links">
         <NavLink className="nav-link" to="/">
-          {/* <i className="nav-icon ri-add-circle-line"></i> */}
           <span>Create a new employee</span>
         </NavLink>
         <NavLink className="nav-link" to="/list">
-          {/* <i className="nav-icon ri-list-check"></i> */}
           <span>View Current Employees</span>
         </NavLink>
       </div>

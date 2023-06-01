@@ -81,17 +81,10 @@ export function Create() {
 
   useEffect(() => {
     if (formOK === true && errorForm.length === 0) {
-      /* Show the modal */
       setModalReset(!modalReset);
       setDisplayModal(true);
-
-      /* Get the list of current employees */
       const employees = JSON.parse(localStorage.getItem('employees')) || [];
-
-      /* Add the employee to the list */
       employees.push(employee);
-
-      /* Save the new employees list */
       localStorage.setItem('employees', JSON.stringify(employees));
 
       setEmployee({
@@ -268,5 +261,3 @@ export function Create() {
     </>
   );
 }
-
-// export default Create;
