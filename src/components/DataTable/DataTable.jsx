@@ -215,7 +215,9 @@ export function DataTable({ data, nameData }) {
           <thead className="data-table-head">
             <tr className="data-table-row">
               {(nameData.length === 0 || dataSearched[0] === 'None') && (
-                <th className="">There is no employees for the moment...</th>
+                <th className="empty-table">
+                  There is no employees for the moment
+                </th>
               )}
               {nameData.length !== 0 &&
                 dataSearched[0] !== 'None' &&

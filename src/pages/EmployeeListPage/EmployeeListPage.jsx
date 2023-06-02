@@ -15,6 +15,7 @@ export function List() {
     <main>
       <h1>Current Employees</h1>
       <DataTable data={employees} nameData={employeesNameData} />
+      {/* <button onClick={localStorage.clear()}></button> */}
     </main>
   );
 }

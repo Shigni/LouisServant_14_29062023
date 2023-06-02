@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import Modal from 'shigni-modale-p14-master';
+// import Modal from '../ModalComp/ModalComp';
 import 'remixicon/fonts/remixicon.css';
 
 import States from '../../assets/data/States.json';
@@ -51,7 +52,7 @@ export function Create() {
   const handleFormDateChange = (name, value) => {
     setEmployee({
       ...employee,
-      [name]: new Date(value).toLocaleDateString('en'),
+      [name]: new Date(value).toLocaleDateString('fr'),
     });
   };
 
@@ -140,26 +141,39 @@ export function Create() {
               <div className="form-col">
                 <label htmlFor="date-of-birth">Date of birth</label>
                 <DatePicker
+                  dateFormat="dd/MM/yyyy"
+                  peekNextMonth
+                  showMonthDropdown
+                  showYearDropdown
+                  dropdownMode="select"
                   className="date-picker-input"
                   id="date-of-birth"
+                  maxDate={new Date()}
                   onChange={(date) => {
                     handleFormDateChange('Date of birth', date);
                     setDateOfBirth(date);
                   }}
-                  placeholderText="mm/jj/aaaa"
+                  placeholderText="jj/mm/aaaa"
                   selected={dateOfBirth}
                 />
               </div>
               <div className="form-col">
                 <label htmlFor="start-date">Start date</label>
                 <DatePicker
+                  dateFormat="dd/MM/yyyy"
+                  peekNextMonth
+                  showMonthDropdown
+                  showYearDropdown
+                  dropdownMode="select"
                   className="date-picker-input"
                   id="start-date"
+                  maxDate={new Date()}
+                  minDate={dateOfBirth}
                   onChange={(date) => {
                     handleFormDateChange('Start date', date);
                     setStartDate(date);
                   }}
-                  placeholderText="mm/jj/aaaa"
+                  placeholderText="jj/mm/aaaa"
                   selected={startDate}
                 />
               </div>
@@ -250,14 +264,16 @@ export function Create() {
           Save
         </button>
       </div>
-      <Modal
-        key={modalReset}
-        id="modal-created"
-        showModal={displayModal}
-        closeModal={() => setDisplayModal(false)}
-        parameter={modalParameter}
-        message="Employee Created !"
-      />
+      <div className="modal-">
+        <Modal
+          key={modalReset}
+          id="modal-created"
+          showModal={displayModal}
+          closeModal={() => setDisplayModal(false)}
+          parameter={modalParameter}
+          message="Employee Created !"
+        />
+      </div>
     </>
   );
 }
