@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import Modal from 'shigni-modale-p14-master';
-// import Modal from '../ModalComp/ModalComp';
 import 'remixicon/fonts/remixicon.css';
 
 import States from '../../assets/data/States.json';
@@ -11,9 +10,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import Dropdown from '../Dropdown/Dropdown';
 
+import { EmployeeContext } from '../../App';
+
 export function Create() {
   const [modalReset, setModalReset] = useState(false);
   const [displayModal, setDisplayModal] = useState(false);
+
+  const { employeeList, setEmployeeList } = useContext(EmployeeContext);
 
   const modalParameter = {
     backgroundColor: '#EEEEEE',
@@ -84,9 +87,12 @@ export function Create() {
     if (formOK === true && errorForm.length === 0) {
       setModalReset(!modalReset);
       setDisplayModal(true);
-      const employees = JSON.parse(localStorage.getItem('employees')) || [];
-      employees.push(employee);
-      localStorage.setItem('employees', JSON.stringify(employees));
+
+      setEmployeeList((currentValue) => {
+        console.log(currentValue);
+        currentValue.push(employee);
+        return currentValue;
+      });
 
       setEmployee({
         'First name': '',

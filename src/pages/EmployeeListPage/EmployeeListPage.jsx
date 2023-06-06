@@ -1,12 +1,15 @@
+import { useContext } from 'react';
 import { DataTable } from '../../components';
 import './EmployeeListPage.scss';
 
+import { EmployeeContext } from '../../App';
+
 export function List() {
-  const employees = JSON.parse(localStorage.getItem('employees')) || [];
+  const { employeeList, setEmployeeList } = useContext(EmployeeContext);
 
   let employeesNameData;
-  if (employees.length !== 0) {
-    employeesNameData = Object.getOwnPropertyNames(employees[0]) || '';
+  if (employeeList.length !== 0) {
+    employeesNameData = Object.getOwnPropertyNames(employeeList[0]) || '';
   } else {
     employeesNameData = [];
   }
@@ -14,8 +17,7 @@ export function List() {
   return (
     <main>
       <h1>Current Employees</h1>
-      <DataTable data={employees} nameData={employeesNameData} />
-      {/* <button onClick={localStorage.clear()}></button> */}
+      <DataTable data={employeeList} nameData={employeesNameData} />
     </main>
   );
 }
