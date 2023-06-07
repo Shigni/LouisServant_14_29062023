@@ -70,10 +70,16 @@ export function Create() {
   const [formOK, setFormOK] = useState(false);
   const [errorForm, setErrorForm] = useState([]);
 
+  const regex = /^[a-zA-Z]+$/;
+
   const saveEmployee = () => {
     setErrorForm([]);
     Object.keys(employee).forEach((input, index) => {
-      if (Object.values(employee)[index] === '') {
+      if (
+        regex.test(employee['Last name']) === false ||
+        regex.test(employee['First name']) === false ||
+        Object.values(employee)[index] === ''
+      ) {
         setFormOK(false);
         setErrorForm((errorForm) => [...errorForm, input]);
       }
